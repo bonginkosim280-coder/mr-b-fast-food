@@ -52,7 +52,7 @@ export default function CheckoutPage() {
       }
 
       clearCart();
-      router.replace("/thank-you");
+      router.replace(`/thank-you?id=${encodeURIComponent(result.orderId)}`);
       
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not confirm your order.");
@@ -77,34 +77,17 @@ export default function CheckoutPage() {
           <fieldset disabled={busy} className="space-y-4">
             <label className="block">
               Full name
-              <input
-                name="customer_name"
-                autoComplete="name"
-                required
-                maxLength={120}
-                className={fieldClass}
-              />
+              <input name="customer_name" required maxLength={120} className={fieldClass} />
             </label>
 
             <label className="block">
               Phone number
-              <input
-                name="customer_phone"
-                type="tel"
-                autoComplete="tel"
-                required
-                maxLength={32}
-                className={fieldClass}
-              />
+              <input name="customer_phone" type="tel" required maxLength={32} className={fieldClass} />
             </label>
 
             <label className="block">
               Fulfillment method
-              <select
-                name="fulfillment_type"
-                defaultValue="pickup"
-                className={fieldClass}
-              >
+              <select name="fulfillment_type" defaultValue="pickup" className={fieldClass}>
                 <option value="pickup">Pickup</option>
                 <option value="delivery">Delivery</option>
               </select>
