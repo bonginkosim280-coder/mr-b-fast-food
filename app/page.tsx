@@ -30,7 +30,7 @@ export default async function Home() {
           className="w-full h-64 md:h-96 object-cover opacity-90"
         >
           {/* New reliable video link */}
-          <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-cook-frying-french-fries-in-a-pan-43233-large.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
