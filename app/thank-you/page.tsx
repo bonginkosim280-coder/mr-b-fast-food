@@ -24,7 +24,15 @@ export default async function ThankYouPage({
 
       {orderId ? (
         <div className="mt-8 rounded-lg border-2 border-green-200 bg-green-50 p-6 text-left shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Complete your payment</h2>
+          
+          {/* ORDER NUMBER BOX */}
+          <div className="mb-8 rounded bg-white p-4 border border-gray-200 shadow-sm text-center">
+            <p className="text-sm text-gray-500 font-semibold mb-1 uppercase tracking-wide">Your Order Number</p>
+            <p className="text-xl font-mono font-bold text-gray-800 break-all">{orderId}</p>
+            <p className="text-xs text-gray-500 mt-2">Please take a screenshot or copy this number to track your order later.</p>
+          </div>
+
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Complete your payment</h2>
           
           <div className="mb-6 text-gray-700 space-y-3">
             <p className="font-semibold text-lg">Please follow these steps:</p>
@@ -50,8 +58,7 @@ export default async function ThankYouPage({
           </a>
           
           <p className="mt-4 text-sm text-gray-500 text-center">
-            You will be redirected to Yoco to complete your secure payment.<br/>
-            Please keep your Order Number safe to track your order.
+            You will be redirected to Yoco to complete your secure payment.
           </p>
         </div>
       ) : (
@@ -59,10 +66,10 @@ export default async function ThankYouPage({
       )}
 
       <div className="mt-8 flex justify-center gap-6">
-        <Link href="/track" className="font-semibold text-orange-700 underline">
+        <Link href="/track" className="font-semibold text-orange-700 underline text-lg">
           Track your order
         </Link>
-        <Link href="/" className="underline">
+        <Link href="/" className="underline text-lg">
           Back to the menu
         </Link>
       </div>
