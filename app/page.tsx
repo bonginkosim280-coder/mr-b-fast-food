@@ -17,31 +17,28 @@ export default async function Home() {
     return <div className="p-8 text-red-500">Error loading menu: {error.message}</div>
   }
 
+  // Only show items that are available!
+  const availableItems = menuItems?.filter(item => item.is_available) || [];
+
   return (
     <main className="p-4 md:p-8 bg-gray-50 min-h-screen">
       
-      {/* VIDEO ADVERTISEMENT */}
-      <div className="max-w-5xl mx-auto mb-10 rounded-xl overflow-hidden shadow-lg bg-black">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="w-full h-64 md:h-96 object-cover opacity-90"
-        >
-          {/* New reliable video link */}
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-cook-frying-french-fries-in-a-pan-43233-large.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      {/* BIG FOOD BANNER (Replacing the video for reliability) */}
+      <div className="max-w-5xl mx-auto mb-10 rounded-xl overflow-hidden shadow-lg">
+        <img 
+          src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1600&q=80" 
+          alt="Delicious Burger and Chips" 
+          className="w-full h-64 md:h-96 object-cover"
+        />
       </div>
 
       <h1 className="text-4xl font-bold mb-8 text-center text-orange-600">MR B Fast-food Menu</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {menuItems?.map((item) => (
+        {availableItems.map((item) => (
           <div key={item.id} className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden flex flex-col">
             
-            {/* Only show the image if the link exists and isn't broken */}
+            {/* ONLY show the image if the link is valid */}
             {item.image_url && item.image_url.startsWith('http') && (
               <img 
                 src={item.image_url} 
@@ -62,7 +59,7 @@ export default async function Home() {
                     name: item.name,
                     price: Number(item.price),
                   }}
-                  disabled={!item.is_available} 
+                  disabled={false}
                 />
               </div>
             </div>
