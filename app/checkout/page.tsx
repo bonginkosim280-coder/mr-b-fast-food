@@ -52,7 +52,7 @@ export default function CheckoutPage() {
       }
 
       clearCart();
-      router.replace(`/thank-you?id=${encodeURIComponent(result.orderId)}`);
+      router.replace(`/thank-you?id=${encodeURIComponent(result.orderId)}&total=${totalPrice}`);
       
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not confirm your order.");
