@@ -29,7 +29,8 @@ export default async function Home() {
           playsInline 
           className="w-full h-64 md:h-96 object-cover opacity-90"
         >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-burger-with-fries-and-a-drink-on-a-table-42987-large.mp4" type="video/mp4" />
+          {/* New reliable video link */}
+          <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -40,7 +41,8 @@ export default async function Home() {
         {menuItems?.map((item) => (
           <div key={item.id} className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden flex flex-col">
             
-            {item.image_url && (
+            {/* Only show the image if the link exists and isn't broken */}
+            {item.image_url && item.image_url.startsWith('http') && (
               <img 
                 src={item.image_url} 
                 alt={item.name} 
