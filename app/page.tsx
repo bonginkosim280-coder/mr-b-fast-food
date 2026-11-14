@@ -25,11 +25,16 @@ export default async function Home() {
       
       {/* BIG FOOD BANNER (Replacing the video for reliability) */}
       <div className="max-w-5xl mx-auto mb-10 rounded-xl overflow-hidden shadow-lg">
-        <img 
-          src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1600&q=80" 
-          alt="Delicious Burger and Chips" 
-          className="w-full h-64 md:h-96 object-cover"
-        />
+        <video 
+  autoPlay 
+  loop 
+  muted 
+  playsInline 
+  className="w-full h-64 md:h-96 object-cover"
+>
+  <source src="/ad.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
       </div>
 
       <h1 className="text-4xl font-bold mb-8 text-center text-orange-600">MR B Fast-food Menu</h1>
